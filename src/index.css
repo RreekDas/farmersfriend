@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-canvas: #F9F8F6;
+  --color-surface: #FFFFFF;
+  --color-botanical: #2E5A44;
+  --color-botanical-dark: #15422E;
+  --color-sage: #4A7C59;
+  --color-terracotta: #D97757;
+  --color-hairline: #E8E5DF;
+  --color-charcoal: #222222;
+  --color-olive: #5A685F;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #20BA5A;
+}
+
+@layer base {
+  html, body {
+    font-family: var(--font-sans);
+    background-color: #F9F8F6;
+    color: #222222;
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.ambient-flora-hover {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ambient-flora-hover:hover {
+  box-shadow: 0 12px 32px -8px rgba(46, 90, 68, 0.08);
+}
+
+.specimen-image-scale {
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .specimen-image-scale {
+  transform: scale(1.04);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .ambient-flora-hover,
+  .specimen-image-scale {
+    transition: none;
+  }
+  .group:hover .specimen-image-scale {
+    transform: none;
+  }
+}
